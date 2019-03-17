@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>success</title>
+    <script type="text/javscript">
+        var name = {{ output[0] }}
+        if(name == 1)
+         var out="yes";
+         else
+         var out="no";
+         document.write(out);
+         document.geElementById("i1").innerHTML=out;
+    </script>
+</head>
+<body>
+<h3>prediction output ={{ output[0] }} </h3>
+</body>
+</html>

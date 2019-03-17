@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Business Casual - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="static/css/business-casual.min.css" rel="stylesheet">
+
+        <style>
+
+            a{
+                text-decoration: none;
+                color: white;
+                font-size: 16px;
+            }
+
+            .button1 {
+                background-color: #483d8b;
+                align: center;
+                border: none;
+                color: white;
+                padding: 20px 35px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+
+            .button2 {
+                display:inline-block;
+                background-color: #483d8b;
+                border: none;
+                color: white;
+                padding: 20px 35px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                width:50px;
+                height:25px;
+            }
+
+            div.a {
+                font-size: 20px;
+            }
+
+            div.b {
+                font-size: 20px;
+            }
+
+            div.c {
+                position: absolute;
+                top: 280px;
+                right: 200px;
+                width: 700px;
+                height:50px;
+
+                  }
+
+             div.d {
+                background-color: #e6ffff;
+                border: 2px solid #99ccff;
+                border-radius: 4px;
+                position: absolute;
+                top: 380px;
+                right: 200px;
+                width: 700px;
+                height:240px;
+                }
+
+            div.buttons {
+                background-color: #483d8b;
+                border: ;
+                color: white;
+                padding: 20px 35px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 15px;
+                margin: 4px 2px;
+                cursor: pointer;
+                width:70px;
+                height:10px;
+
+            }
+
+            div.pred {
+                align : center;
+                position: center;
+                font-family: "Roboto", Helvetica, Arial, sans-serif;
+                font-weight: 100;
+                font-size: 20px;
+                line-height: 30px;
+            }
+            body  {
+                height: 100%;
+                background-size: cover;
+            }
+
+            </style>
+
+  </head>
+
+  <body>
+
+    <h1 class="site-heading text-center text-white d-none d-lg-block">
+      <span class="site-heading-upper text-primary mb-3">A Free Bootstrap 4 Business Theme</span>
+      <span class="site-heading-lower">Business Casual</span>
+    </h1>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="{{url_for('home')}}">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="{{url_for('about')}}">About</a>
+            </li>
+            <li class="nav-item active px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="{{url_for('prediction')}}">Prediction</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="{{url_for('store')}}">Store</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="page-section">
+      <div class="container">
+        <div class="product-item">
+
+          <div class="product-item-description d-flex mr-auto">
+            <div class="bg-faded p-5 rounded">
+              <p class="mb-0">Percentage prone to heart disease:  {{ output[0]*25 }} %</p>
+                <input type="button" class="button1" name="insight" align=center value="View Insights" onclick="showDiv()"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+     <script type="text/javascript">
+    var flag=1;
+
+	function showDiv()
+	 {
+        if(flag==1)
+        {
+	    var btn1 = document.createElement("BUTTON");
+        var t1 = document.createTextNode("BLOOD PRESSURE");
+        btn1.appendChild(t1);
+        document.body.appendChild(btn1);
+        btn1.setAttribute('onclick', 'funBp();');
+
+        var btn2 = document.createElement("BUTTON");
+        var t2 = document.createTextNode("HEART RATE");
+        btn2.appendChild(t2);
+        document.body.appendChild(btn2);
+        btn2.setAttribute('onclick', 'funHr();');
+
+        var btn3 = document.createElement("BUTTON");
+        var t3 = document.createTextNode("CHOLESTEROL");
+        btn3.appendChild(t3);
+        document.body.appendChild(btn3);
+        btn3.setAttribute('onclick', 'funChol();');
+
+        var btn4 = document.createElement("BUTTON");
+        var t4 = document.createTextNode("BLOOD SUGAR");
+        btn4.appendChild(t4);
+        document.body.appendChild(btn4);
+        btn4.setAttribute('onclick', 'funSugar();');
+
+        }
+        flag=0;
+     }
+
+        function funBp()
+     {
+        if({{bp}}<=120)
+        {
+            document.getElementById('insights').innerHTML = "..";
+
+            var remedies = [{"id":"1","content":"Eat a diet higher in salt."},
+                {"id":"2","content":"Get regular exercise to promote blood flow."},
+                {"id":"3","content":"Drink more fluids during hot weather and while sick with a viral illness, such as a cold or the flu."},
+                {"id":"4","content":"Avoid heavy lifting and standing still in place for long periods of time."},
+                {"id":"5","content":"Be careful when rising from lying down or sitting. To help improve circulation pump your feet and ankles a few times before standing up. Then proceed slowly. When getting out of bed, sit upright on the edge of the bed for a few minutes before standing."},
+                {"id":"6","content":"To avoid problems with low blood pressure and lessen episodes of dizziness after meals, try eating smaller, more frequent meals. Cut back on carbohydrates. Rest after eating. Avoid taking drugs to lower blood pressure before meals."},
+                {"id":"7","content":"Have your doctor evaluate your prescription and over-the-counter medications to see if any of them are causing your symptoms."}];
+
+            localStorage.setItem("remedy", JSON.stringify(remedies));
+            var retrievedData = localStorage.getItem("remedy");
+            var rem = JSON.parse(retrievedData);
+            var j="";
+        for(var i=0; i<rem.length;i++)
+        {
+            j+=rem[i]['id'] + "." + " " + rem[i]['content'] + "<br>";
+        }
+            document.getElementById('insights').innerHTML = j;
+
+        }
+
+        else if({{bp}}>140)
+        {
+            var remedies = [{"id":"1","content":"Increase your activity level and exercise more."},
+                            {"id":"2","content":"Lose weight if you’re overweight"},
+                            {"id":"3","content":"Stop smoking"},
+                            {"id":"4","content":"Reduce excess stress"},
+                            {"id":"5","content":"Try meditation or yoga"},
+                            {"id":"6","content":"Make sure to get good, restful sleep"},
+                            {"id":"7","content":"Eat healthy high-protein foods"}];
+
+            localStorage.setItem("remedy", JSON.stringify(remedies));
+            var retrievedData = localStorage.getItem("remedy");
+            var rem = JSON.parse(retrievedData);
+            var j="";
+        for(var i=0; i<rem.length;i++)
+            {
+                j+=rem[i]['id'] + "." + " " + rem[i]['content'] + "<br>";
+            }
+            document.getElementById('insights').innerHTML = j;
+        }
+        else
+            document.getElementById('insights').innerHTML ="Your blood pressure is normal.";
+     }
+
+     function funSugar()
+     {
+        if( {{blood_sugar}} <=70)
+        {
+
+            var remedies = [{"id":"1","content":"Get enough sleep."},
+                            {"id":"2","content":"Consume Quick-sugar foods like Fruit juice,Honey,Raisins,etc."}];
+            localStorage.setItem("remedy", JSON.stringify(remedies));
+            var retrievedData = localStorage.getItem("remedy");
+            var rem = JSON.parse(retrievedData);
+            var j="";
+        for(var i=0; i<rem.length;i++)
+        {
+            j+=rem[i]['id'] + "." + " " + rem[i]['content'] + "<br>";
+        }
+            document.getElementById('insights').innerHTML = j;
+
+        }
+
+        else if({{blood_sugar}}>100)
+        {
+            var remedies = [{"id":"1","content":"Exercise Regularly."},
+                            {"id":"2","content":"Drink Water and Stay Hydrated."},
+                            {"id":"3","content":"Control Stress Levels."},
+                            {"id":"4","content":"Get Enough Quality Sleep."}];
+
+            localStorage.setItem("remedy", JSON.stringify(remedies));
+            var retrievedData = localStorage.getItem("remedy");
+            var rem = JSON.parse(retrievedData);
+            var j="";
+        for(var i=0; i<rem.length;i++)
+            {
+                j+=rem[i]['id'] + "." + " " + rem[i]['content'] + "<br>";
+            }
+            document.getElementById('insights').innerHTML = j;
+        }
+        else
+            document.getElementById('insights').innerHTML ="Your blood sugar is normal.";
+     }
+
+      function funHr()
+     {
+        if( {{heart_rate}}<=60)
+        {
+            var remedies = [{"id":"1","content":"Aerobic exercises"},
+                            {"id":"2","content":"Resistance training"},
+                            {"id":"3","content":"Stretching"}];
+
+            localStorage.setItem("remedy", JSON.stringify(remedies));
+            var retrievedData = localStorage.getItem("remedy");
+            var rem = JSON.parse(retrievedData);
+            var j="Your heart rate is lesser than the normal range";
+        for(var i=0; i<rem.length;i++)
+        {
+            j+=rem[i]['id'] + "." + " " + rem[i]['content'] + "<br>";
+        }
+            document.getElementById('insights').innerHTML = j;
+
+        }
+
+        else if({{heart_rate}}>100)
+        {
+            var remedies = [{"id":"1","content":" Exercise more."},
+                            {"id":"2","content":"Reduce stress."},
+                            {"id":"3","content":"Avoid tobacco products."},
+                            {"id":"4","content":"Lose weight if necessary."}];
+
+            localStorage.setItem("remedy", JSON.stringify(remedies));
+            var retrievedData = localStorage.getItem("remedy");
+            var rem = JSON.parse(retrievedData);
+            var j="Your heart rate is above the normal range" + "<br><br>";
+        for(var i=0; i<rem.length;i++)
+            {
+                j+=rem[i]['id'] + "." + " " + rem[i]['content'] + "<br>";
+            }
+            document.getElementById('insights').innerHTML = j;
+        }
+        else
+            document.getElementById('insights').innerHTML ="Your heart rate is normal.";
+     }
+
+function funChol()
+     {
+        if({{cholesterol}}<= 170)
+        {
+            document.getElementById('insights').innerHTML = "..";
+
+            var remedies = [{"id":"1","content":"Get active. Get at least 30 minutes a day of moderate activity, most days of the week."},
+                {"id":"2","content":"Lose extra weight."},
+                {"id":"3","content":"Stop smoking."},
+                {"id":"4","content":"Consume olive oil, coconut oil, fatty fish like salmon and tuna."}];
+
+            localStorage.setItem("remedy", JSON.stringify(remedies));
+            var retrievedData = localStorage.getItem("remedy");
+            var rem = JSON.parse(retrievedData);
+            var j="";
+        for(var i=0; i<rem.length;i++)
+        {
+            j+=rem[i]['id'] + "." + " " + rem[i]['content'] + "<br>";
+        }
+            document.getElementById('insights').innerHTML = j;
+
+        }
+
+        else if({{cholesterol}}>200)
+        {
+            var remedies = [{"id":"1","content":"Make exercise a habit."},
+                            {"id":"2","content":"Get to a healthy weight."},
+                            {"id":"3","content":"Eat fiber, which helps lower your cholesterol level. You get fiber from plant foods, like whole grains, beans, peas, and many fruits and vegetables."},
+                            {"id":"4","content":"Limit sugar"}];
+
+            localStorage.setItem("remedy", JSON.stringify(remedies));
+            var retrievedData = localStorage.getItem("remedy");
+            var rem = JSON.parse(retrievedData);
+            var j="";
+        for(var i=0; i<rem.length;i++)
+            {
+                j+=rem[i]['id'] + "." + " " + rem[i]['content'] + "<br>";
+            }
+            document.getElementById('insights').innerHTML = j;
+        }
+        else
+            document.getElementById('insights').innerHTML ="Your cholesterol is normal.";
+     }
+
+    </script>
+
+  </body>
+
+</html>
